@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de" data-design="hell" data-akzent="blau" data-schrift="normal">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Schaltpunkt</title>
+<meta name="description" content="Fahrstunden, Theorie, Kosten und Prüfungen auf dem Weg zum Führerschein.">
+<meta name="theme-color" content="#ffffff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Schaltpunkt">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="kopf">
+  <button class="kopf__zurueck" id="btnZurueck" type="button" aria-label="Zurück" hidden>
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <h1 class="kopf__titel" id="kopfTitel">Übersicht</h1>
+  <button class="kopf__aktion" id="btnKopfAktion" type="button" hidden></button>
+</header>
+
+<main id="main">
+  <section class="ansicht" id="v-uebersicht"></section>
+  <section class="ansicht" id="v-ausbildung" hidden></section>
+  <section class="ansicht" id="v-kosten" hidden></section>
+  <section class="ansicht" id="v-mehr" hidden></section>
+  <section class="ansicht" id="v-seite" hidden></section>
+</main>
+
+<nav class="leiste" id="leiste">
+  <button class="reiter" type="button" data-tab="uebersicht">
+    <svg viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5M6.5 10.5V19h11v-8.5"/></svg>
+    <span>Übersicht</span>
+  </button>
+  <button class="reiter" type="button" data-tab="ausbildung">
+    <svg viewBox="0 0 24 24"><path d="M5 16.5h14M7 16.5v-6l1.4-4h7.2l1.4 4v6M8 19.5v-3m8 3v-3"/></svg>
+    <span>Ausbildung</span>
+  </button>
+  <button class="reiter reiter--plus" type="button" id="btnNeu" aria-label="Neuer Eintrag">
+    <span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5.5v13M5.5 12h13"/></svg></span>
+  </button>
+  <button class="reiter" type="button" data-tab="kosten">
+    <svg viewBox="0 0 24 24"><path d="M3.5 7.5h17v11h-17zM3.5 11h17M7 15.5h3"/></svg>
+    <span>Kosten</span>
+  </button>
+  <button class="reiter" type="button" data-tab="mehr">
+    <svg viewBox="0 0 24 24"><path d="M5 8.5h14M5 12h14M5 15.5h9"/></svg>
+    <span>Mehr</span>
+  </button>
+</nav>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__hg" data-schliessen="1"></div>
+  <div class="sheet__box" role="dialog" aria-modal="true" aria-labelledby="sheetTitel">
+    <div class="sheet__kopf">
+      <button class="sheet__ab" type="button" id="sheetAbbrechen">Abbrechen</button>
+      <h2 id="sheetTitel">Eintrag</h2>
+      <button class="sheet__ok" type="button" id="sheetSpeichern">Sichern</button>
+    </div>
+    <form id="sheetForm" novalidate>
+      <div id="sheetBody"></div>
+    </form>
+  </div>
+</div>
+
+<div class="hinweisbalken" id="hinweisbalken" hidden>
+  <span id="hinweisText"></span>
+  <button type="button" id="hinweisAktion">Rückgängig</button>
+</div>
+
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
